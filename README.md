@@ -29,3 +29,5 @@ Solution: I had to add some IP ranges to allow Azure and Looker to communicate w
 
 Future Challenge: Secure storage of API secrets and connection strings (currently stored in plain text in the Flask app).
 Future Solution: Use Azure Key Vault to store this information and retrieve it securely during the automated process.
+
+Looker Dashboard: https://lookerstudio.google.com/s/tCrhR_b1lMY
