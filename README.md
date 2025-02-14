@@ -7,12 +7,12 @@ Features:
 - Data Transformation: Processing and cleaning data before loading.
 - Data Loading: Transformed data is inserted into an Azure SQL database.
 - Visualisation: Data is connected to Google Looker for dashboards and reporting.
-- Scalable Deployment: Dockerized application hosted on an Azure Web App.
+- Scalable Deployment: Dockerised application hosted on an Azure Web App.
 - Automation: Hourly execution using Azure Scheduler.
 
 Technologies Used:
 - Backend: Python, Flask, PRAW, pyodbc
-- Containerization: Docker
+- Containerisation: Docker
 - Cloud Services: Azure Web Apps, Azure SQL Database, Azure Scheduler
 - Visualisation: Google Looker
 
