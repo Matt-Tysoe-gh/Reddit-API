@@ -21,11 +21,11 @@ def connect_string() -> str:
     return connection_string
 
 def subreddit_filters() -> List[str]:
-        subreddit_list = [
-        "programming", "learnprogramming", "datascience", "machinelearning",
-        "python", "SQL", "coding", "opensource", "webdev", "dataisbeautiful"
-        ]
-        return subreddit_list
+    subreddit_list = [
+    "programming", "learnprogramming", "datascience", "machinelearning",
+    "python", "SQL", "coding", "opensource", "webdev", "dataisbeautiful"
+    ]
+    return subreddit_list
 
 def fetch_subreddit_data(subreddit_list: List[str], reddit: praw.Reddit) -> List[Dict[str, Any]]:
 
