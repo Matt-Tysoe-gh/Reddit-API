@@ -1,6 +1,6 @@
 # ETL Pipeline with Flask API, Azure, and Google Looker
 ## Overview:
-This project demonstrates an automated ETL (Extract, Transform, Load) pipeline built using Python and Flask. It is designed to fetch, process, and load data into an Azure SQL database, with real-time insights visualized in Google Looker. The pipeline is containerized with Docker and deployed on an Azure Web App, with automation handled by Azure Scheduler.
+This project demonstrates an automated ETL (Extract, Transform, Load) pipeline built using Python and Flask. It is designed to fetch, process, and load data into an Azure SQL database, with real-time insights visualised in Google Looker. The pipeline is containerised with Docker and deployed on an Azure Web App, with automation handled by Azure Scheduler.
 
 ## Features:
 - Data Extraction: Automated hourly API calls to gather data.
