@@ -28,7 +28,6 @@ def subreddit_filters() -> List[str]:
     return subreddit_list
 
 def fetch_subreddit_data(subreddit_list: List[str], reddit: praw.Reddit) -> List[Dict[str, Any]]:
-
     cutoff_timestamp = int(datetime.now(timezone.utc).timestamp() - 3600)
     return [
         {
