@@ -21,13 +21,14 @@ def connect_string() -> str:
     return connection_string
 
 def subreddit_filters() -> List[str]:
-    subreddit_list = [
-    "programming", "learnprogramming", "datascience", "machinelearning",
-    "python", "SQL", "coding", "opensource", "webdev", "dataisbeautiful"
-    ]
-    return subreddit_list
+        subreddit_list = [
+        "programming", "learnprogramming", "datascience", "machinelearning",
+        "python", "SQL", "coding", "opensource", "webdev", "dataisbeautiful"
+        ]
+        return subreddit_list
 
 def fetch_subreddit_data(subreddit_list: List[str], reddit: praw.Reddit) -> List[Dict[str, Any]]:
+
     cutoff_timestamp = int(datetime.now(timezone.utc).timestamp() - 3600)
     return [
         {
@@ -58,17 +59,6 @@ def post_to_database(posts: List[Dict[str, Any]], cursor: pyodbc):
             (post['id'], post['subreddit'], post['title'], post['upvotes'], post['upvote_ratio'], post['comments'], post['created_utc'])
         )
 
-def start_database_connection(connection_string: str) -> Tuple[pyodbc.Cursor, pyodbc.Connection]:
-    connection = pyodbc.connect(connection_string)
-    cursor = connection.cursor()
-    return cursor, connection
-
-def end_database_connection(cursor: pyodbc.Cursor, connection: pyodbc.Connection) -> None:
-    connection.commit()
-    cursor.close()
-    connection.close()
-    return
-
 def register_routes(app: Flask) -> None:
     @app.route('/', methods=['GET'])
     def run_etl() -> str:
@@ -77,9 +67,10 @@ def register_routes(app: Flask) -> None:
         subreddit_list = subreddit_filters()
         
         posts = fetch_subreddit_data(subreddit_list, reddit)
-        cursor, connection = start_database_connection(connection_string)
-        post_to_database(posts, cursor)
-        end_database_connection(cursor, connection)
+
+        with pyodbc.connect(connection_string) as conn:
+            with conn.cursor() as cursor:
+                post_to_database(posts, cursor)
         
         return "ETL process complete"
 
