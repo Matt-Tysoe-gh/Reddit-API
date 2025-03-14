@@ -71,6 +71,7 @@ def register_routes(app: Flask) -> None:
         with pyodbc.connect(connection_string) as conn:
             with conn.cursor() as cursor:
                 post_to_database(posts, cursor)
+                conn.commit()
         
         return "ETL process complete"
 
