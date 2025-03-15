@@ -20,5 +20,7 @@ This project demonstrates an automated ETL (Extract, Transform, Load) pipeline b
 - Remove jsonify functionality (no longer required) – ✅ DONE
 - Swap from a "SQL Database General Purpose - Serverless - Compute Gen5 - 1 vCore - UK South" Azure SQL db to a "Standard S0: 10 DTUs" Azure SQL db to decrease monthly costs - ✅ DONE
 - Add logging and store log data in an Azure service for info logs, debugging, and catching warning/critical errors.
+    - Add logging - ✅ DONE
+    - store log data in azure service
 - Store connection strings and API details in a secure Azure secrets manager to allow for dynamic reusability.
 
