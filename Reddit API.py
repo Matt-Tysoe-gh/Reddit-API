@@ -70,7 +70,7 @@ def fetch_subreddit_data(subreddit_list: List[str], reddit: praw.Reddit) -> List
             }
             for sub in subreddit_list
             for post in reddit.subreddit(sub).new()
-            if post.created_utc <= cutoff_timestamp
+            if post.created_utc >= cutoff_timestamp
         ]
     except Exception:
         logging.exception("subreddit post failed")
